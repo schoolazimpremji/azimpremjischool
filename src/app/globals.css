@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #faf7f0;
+  --foreground: #1e3425;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Botanical paper subtle grain effect */
+.bg-parchment-texture {
+  background-color: #faf7f0;
+  background-image: radial-gradient(#e1ede4 0.75px, transparent 0.75px), radial-gradient(#e1ede4 0.75px, #faf7f0 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+/* Subtle botanical badge styling */
+.herbarium-border {
+  border: 1px solid #d5dbce;
+  box-shadow: 0 2px 8px -2px rgba(30, 52, 37, 0.05);
+}
+
+.herbarium-card {
+  background: #ffffff;
+  border: 1px solid #e1ede4;
+  border-radius: 0.75rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.herbarium-card:hover {
+  transform: translateY(-2px);
+  border-color: #9dc3a8;
+  box-shadow: 0 12px 24px -6px rgba(38, 67, 47, 0.08);
+}
