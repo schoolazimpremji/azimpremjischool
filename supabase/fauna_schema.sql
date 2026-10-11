@@ -253,3 +253,227 @@ CREATE POLICY "Admins can delete fauna sources"
   ON public.fauna_sources FOR DELETE
   TO authenticated
   USING (public.is_admin());
+
+-- ============================================================
+-- 9. STORAGE BUCKET CONFIGURATION (For 'fauna-photos')
+-- ============================================================
+-- Ensure the 'fauna-photos' public storage bucket exists for image uploads
+INSERT INTO storage.buckets (id, name, public)
+VALUES ('fauna-photos', 'fauna-photos', true)
+ON CONFLICT (id) DO UPDATE SET public = true;
+
+-- Storage RLS Policies for 'fauna-photos' bucket
+DROP POLICY IF EXISTS "Public can view fauna photos in storage" ON storage.objects;
+CREATE POLICY "Public can view fauna photos in storage"
+  ON storage.objects FOR SELECT
+  USING (bucket_id = 'fauna-photos');
+
+DROP POLICY IF EXISTS "Admins can upload fauna photos to storage" ON storage.objects;
+CREATE POLICY "Admins can upload fauna photos to storage"
+  ON storage.objects FOR INSERT
+  TO authenticated
+  WITH CHECK (bucket_id = 'fauna-photos' AND public.is_admin());
+
+DROP POLICY IF EXISTS "Admins can update fauna photos in storage" ON storage.objects;
+CREATE POLICY "Admins can update fauna photos in storage"
+  ON storage.objects FOR UPDATE
+  TO authenticated
+  USING (bucket_id = 'fauna-photos' AND public.is_admin())
+  WITH CHECK (bucket_id = 'fauna-photos' AND public.is_admin());
+
+DROP POLICY IF EXISTS "Admins can delete fauna photos from storage" ON storage.objects;
+CREATE POLICY "Admins can delete fauna photos from storage"
+  ON storage.objects FOR DELETE
+  TO authenticated
+  USING (bucket_id = 'fauna-photos' AND public.is_admin());
+
+-- ============================================================
+-- 10. INITIAL SAMPLE SEEDS (Optional Verification Data)
+-- ============================================================
+INSERT INTO public.fauna (
+  id, slug, common_name, other_common_names, scientific_name, scientific_authority,
+  family, category, identification_confidence, identification_notes,
+  native_range, geographic_distribution, habitat, microhabitat,
+  campus_location, observation_notes, activity_pattern, seasonal_occurrence,
+  physical_description, diet_and_feeding, behaviour_and_adaptations,
+  ecological_role, reproduction_breeding, life_cycle, relationship_with_flora,
+  conservation_status, conservation_assessment_year, ecological_threats,
+  human_wildlife_interactions, safety_guidance, observation_distance,
+  interesting_facts, featured_fact, status
+) VALUES
+(
+  'fauna-bulbul-01',
+  'red-vented-bulbul',
+  'Red-vented Bulbul',
+  ARRAY['Bulbul', 'Kala Bulbul (Hindi)'],
+  'Pycnonotus cafer',
+  '(Linnaeus, 1766)',
+  'Pycnonotidae',
+  'birds',
+  'confirmed',
+  'Dark crest on head, brown scaled back, white rump, crimson-red undertail patch.',
+  'Indian Subcontinent',
+  'Widespread across India and Sri Lanka in open woodlands, orchards, and gardens.',
+  'Urban gardens, school grounds, deciduous orchards, and scrublands.',
+  'Canopy branches of Gulmohar and Neem trees, and fruiting hedges.',
+  'Central Lawn & Fruit Tree Orchard near Junior Wing',
+  'Frequently observed in pairs foraging on berries in morning hours.',
+  'diurnal',
+  'Resident breeder; present on campus throughout all seasons.',
+  'Medium-sized songbird (~20 cm) with black crested head, brown scalloped back, crimson vent.',
+  'Omnivorous: berries, flower nectar, termites, caterpillars.',
+  'Builds neat cup-shaped nests in dense low bushes using fine twigs and cobwebs.',
+  'Critical seed disperser for campus shrubs and natural biological insect predator.',
+  'Breeds June to September; clutches contain 2-3 pinkish speckled eggs.',
+  'Incubation lasts 12-14 days; fledglings leave nest within 12 days.',
+  'Visits Delonix regia (Gulmohar) flowers for nectar; perches in Neem.',
+  'Least Concern (IUCN)',
+  '2020',
+  'Urban pesticide usage causing insect depletion and domestic cat predation.',
+  'Accustomed to quiet human presence around campus walkways. Do not disturb nesting bushes.',
+  'Harmless songbird. Students must observe with binoculars from 3-5 metres distance.',
+  'Observe quietly from 3 to 5 metres distance; avoid touching nests or fledglings.',
+  'Bulbuls are capable of complex melodious bubbling calls and territory mimicry.',
+  'Red-vented bulbuls play an indispensable role in regenerating campus flora through seed dispersal.',
+  'published'
+),
+(
+  'fauna-squirrel-02',
+  'indian-palm-squirrel',
+  'Three-striped Palm Squirrel',
+  ARRAY['Gilahri (Hindi)', 'Indian Palm Squirrel'],
+  'Funambulus palmarum',
+  '(Linnaeus, 1766)',
+  'Sciuridae',
+  'mammals',
+  'confirmed',
+  'Small agile rodent with three creamy longitudinal dorsal stripes and bushy tail.',
+  'Indian Subcontinent & Sri Lanka',
+  'Ubiquitous in rural, semi-urban, and forested areas across India.',
+  'Deciduous trees, cultivated gardens, roof crevices, and verandas.',
+  'Tree trunks, branches, and shady canopy of mature courtyard trees.',
+  'Main School Courtyard & Library Periphery',
+  'Produces bird-like chirping alarms when potential predators appear.',
+  'diurnal',
+  'Active year-round, especially in cooler morning and late afternoon hours.',
+  'Slender rodent measuring 15-20 cm head-body length with bushy tail.',
+  'Herbivorous: seeds, nuts, tender tree buds, fallen fruits, occasionally insects.',
+  'Rapid vertical climbing ability; holds food deftly between forepaws.',
+  'Seed cacher; forgotten seeds buried in school lawns often germinate into saplings.',
+  'Breeds year-round with peaks in spring; builds domed nests from dry fibers.',
+  'Gestation 40-42 days; litters usually 2-3 kits.',
+  'Uses bark fibers to construct warm nests and feeds on flowers of Gulmohar.',
+  'Least Concern (IUCN)',
+  '2016',
+  'Overhead electrical lines, traffic, and feral cats.',
+  'Seen scurrying near benches. Students should never trap or feed processed snacks.',
+  'Harmless but wild; do not corner or handle directly as rodents can bite.',
+  'Observe freely from 2 to 4 metres.',
+  'Folklore connects the three stripes to the gentle touch of Lord Rama.',
+  'Their high-pitched sentinel calls alert both other squirrels and campus birds to raptors.',
+  'published'
+),
+(
+  'fauna-butterfly-03',
+  'common-mormon-butterfly',
+  'Common Mormon',
+  ARRAY['Mormon Swallowtail'],
+  'Papilio polytes',
+  'Linnaeus, 1758',
+  'Papilionidae',
+  'butterflies and moths',
+  'confirmed',
+  'Velvet-black swallowtail; males have creamy-white hindwing band; females show Batesian mimicry.',
+  'South Asia & Indo-Malayan realm',
+  'Widespread across India from lowlands to mid-elevation hills.',
+  'Gardens, campus flower beds, forest clearings, and citrus groves.',
+  'Sunlit flowering shrubs, Sadabahar patches, and lemon saplings.',
+  'Campus Botanical Garden & Science Block Greenhouses',
+  'Regularly observed mud-puddling on wet soil near garden taps.',
+  'diurnal',
+  'Most abundant during post-monsoon months (September to November).',
+  'Wingspan 90-100 mm with pronounced spatulate tail extensions.',
+  'Adults drink flower nectar; caterpillars feed strictly on Rutaceae (Citrus, Curry leaf).',
+  'Exhibits polymorphic female mimicry of toxic Crimson Rose swallowtails.',
+  'Key pollinator of campus garden flowers and herbs.',
+  'Lays single pale yellow spherical eggs on tender citrus leaf undersides.',
+  'Complete metamorphosis over roughly 3 to 4 weeks.',
+  'Host plant: Murraya koenigii (Curry leaf) & Citrus; nectar: Sadabahar.',
+  'Least Concern (IUCN / WPA)',
+  '2021',
+  'Pesticide spraying on ornamental plants kills caterpillars and pupae.',
+  'Delightful subject for student photography and drawing exercises in science class.',
+  'Completely harmless. Do not touch delicate wings as rubbing scales impairs flight.',
+  'Observe closely from 1 metre without casting rapid shadows.',
+  'Young caterpillars look exactly like bird droppings to deter predators.',
+  'A classic textbook example of natural selection and Batesian mimicry.',
+  'published'
+),
+(
+  'fauna-lizard-04',
+  'oriental-garden-lizard',
+  'Oriental Garden Lizard',
+  ARRAY['Changeable Lizard', 'Girgit (Hindi)', 'Blood-sucker (Misnomer)'],
+  'Calotes versicolor',
+  '(Daudin, 1802)',
+  'Agamidae',
+  'reptiles',
+  'confirmed',
+  'Serrated dorsal crest; males develop bright crimson head during territorial breeding displays.',
+  'South Asia & Indo-China',
+  'Common throughout India in gardens, farmlands, open woodlands, and urban parks.',
+  'Hedges, shrubby borders, stone boundary walls, and sun-warmed tree boles.',
+  'Low tree branches and sunny brick ledges along perimeter.',
+  'Perimeter Boundary Wall & Sports Field Hedges',
+  'Seen basking on morning rocks to thermoregulate, performing head bobs.',
+  'diurnal',
+  'Active throughout warmer months; enters brumation during chilly winter weeks.',
+  'Total length up to 37 cm including very long slender tail. Body scales keeled.',
+  'Insectivorous: feeds eagerly on grasshoppers, beetles, ants, crickets.',
+  'Capable of rapid color change driven by temperature, mood, and camouflage.',
+  'Natural biological controller of campus insect pests; prey for raptors.',
+  'Oviparous; females bury 10-20 oval leathery eggs in moist soil.',
+  'Eggs hatch in 6-8 weeks; hatchlings are self-sufficient immediately.',
+  'Uses thorny branches of bougainvillea and hedge shrubs for shelter.',
+  'Least Concern (IUCN)',
+  '2021',
+  'Loss of dense boundary hedges and lawn pesticide use.',
+  'Commonly feared due to unfounded myth of "blood-sucking"; educational signage dispels this.',
+  'Non-venomous and timid. Will scurry away when approached. Do not grab by tail.',
+  'Observe from 2 to 3 metres.',
+  'The name "Blood-sucker" is completely misleading; they do not suck blood.',
+  'Garden lizards perform rhythmic "push-ups" to assert dominance over rival males.',
+  'published'
+)
+ON CONFLICT (id) DO NOTHING;
+
+-- Seed Photos for Fauna
+INSERT INTO public.fauna_photos (
+  id, fauna_id, storage_path, public_url, caption, alt_text, is_primary, display_order
+) VALUES
+(
+  'photo-bulbul-1', 'fauna-bulbul-01',
+  'fauna/red-vented-bulbul/bulbul-01.jpg', '/images/fauna/bulbul.jpg',
+  'Adult Red-vented Bulbul photographed in campus shrubbery near Junior Wing.',
+  'Red-vented bulbul perching on garden foliage', true, 1
+),
+(
+  'photo-squirrel-1', 'fauna-squirrel-02',
+  'fauna/indian-palm-squirrel/squirrel-01.jpg', '/images/fauna/squirrel.jpg',
+  'Palm squirrel foraging along the bark of an old courtyard tree.',
+  'Three-striped palm squirrel climbing bark of tree', true, 1
+),
+(
+  'photo-butterfly-1', 'fauna-butterfly-03',
+  'fauna/common-mormon/mormon-01.jpg', '/images/fauna/common_mormon.jpg',
+  'Common Mormon nectaring on blooming campus flora in the afternoon sun.',
+  'Common Mormon butterfly perched on a garden blossom', true, 1
+),
+(
+  'photo-lizard-1', 'fauna-lizard-04',
+  'fauna/oriental-garden-lizard/lizard-01.jpg', '/images/fauna/garden_lizard.jpg',
+  'Male garden lizard thermoregulating along the school perimeter hedge.',
+  'Oriental Garden lizard basking on wooden branch', true, 1
+)
+ON CONFLICT (id) DO NOTHING;
+

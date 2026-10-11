@@ -5,9 +5,9 @@ import Footer from "@/components/layout/Footer";
 import { AuthProvider } from "@/context/AuthContext";
 
 export const metadata: Metadata = {
-  title: "Campus Flora & Biodiversity | Azim Premji School",
-  description: "A student-researched botanical field guide documenting plant species across the Azim Premji School campus.",
-  keywords: ["Azim Premji School", "Campus Biodiversity", "Flora", "Botanical Field Guide", "Nature Education", "Plants"],
+  title: "Campus Biodiversity (Flora & Fauna) | Azim Premji School",
+  description: "A student-researched living field journal documenting botanical flora and wildlife fauna across the Azim Premji School campus.",
+  keywords: ["Azim Premji School", "Campus Biodiversity", "Flora", "Fauna", "Wildlife", "Botanical Field Guide", "Nature Education", "Birds", "Plants"],
 };
 
 export default function RootLayout({
