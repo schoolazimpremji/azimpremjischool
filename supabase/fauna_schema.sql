@@ -48,6 +48,46 @@ DO $$ BEGIN
   END IF;
 END $$;
 
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'confidence_level') THEN
+    CREATE TYPE confidence_level AS ENUM (
+      'confirmed',
+      'probable',
+      'uncertain',
+      'unidentified'
+    );
+  END IF;
+END $$;
+
+-- Administrator allowlist table & helper (if not already defined)
+CREATE TABLE IF NOT EXISTS public.admin_users (
+  id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+  email TEXT,
+  granted_at TIMESTAMPTZ DEFAULT now()
+);
+ALTER TABLE public.admin_users ENABLE ROW LEVEL SECURITY;
+
+CREATE OR REPLACE FUNCTION public.is_admin()
+RETURNS BOOLEAN
+LANGUAGE sql
+SECURITY DEFINER
+SET search_path = public
+STABLE
+AS $$
+  SELECT EXISTS (
+    SELECT 1 FROM public.admin_users WHERE id = auth.uid()
+  );
+$$;
+
+-- Trigger helper function for auto-updating updated_at timestamp
+CREATE OR REPLACE FUNCTION public.update_modified_column()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = now();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
 -- 2. FAUNA SPECIES TABLE
 CREATE TABLE IF NOT EXISTS public.fauna (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -111,6 +151,7 @@ CREATE TABLE IF NOT EXISTS public.fauna_photos (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   fauna_id UUID NOT NULL REFERENCES public.fauna(id) ON DELETE CASCADE,
   storage_path TEXT NOT NULL,
+  public_url TEXT,
   alt_text TEXT,
   caption TEXT,
   is_primary BOOLEAN DEFAULT false,
@@ -118,6 +159,8 @@ CREATE TABLE IF NOT EXISTS public.fauna_photos (
   uploaded_by UUID REFERENCES auth.users(id),
   created_at TIMESTAMPTZ DEFAULT now()
 );
+
+ALTER TABLE public.fauna_photos ADD COLUMN IF NOT EXISTS public_url TEXT;
 
 CREATE INDEX IF NOT EXISTS idx_fauna_photos_fauna_id ON public.fauna_photos(fauna_id);
 
@@ -291,7 +334,7 @@ CREATE POLICY "Admins can delete fauna photos from storage"
 -- 10. INITIAL SAMPLE SEEDS (Optional Verification Data)
 -- ============================================================
 INSERT INTO public.fauna (
-  id, slug, common_name, other_common_names, scientific_name, scientific_authority,
+  slug, common_name, other_common_names, scientific_name, scientific_authority,
   family, category, identification_confidence, identification_notes,
   native_range, geographic_distribution, habitat, microhabitat,
   campus_location, observation_notes, activity_pattern, seasonal_occurrence,
@@ -302,7 +345,6 @@ INSERT INTO public.fauna (
   interesting_facts, featured_fact, status
 ) VALUES
 (
-  'fauna-bulbul-01',
   'red-vented-bulbul',
   'Red-vented Bulbul',
   ARRAY['Bulbul', 'Kala Bulbul (Hindi)'],
@@ -338,7 +380,6 @@ INSERT INTO public.fauna (
   'published'
 ),
 (
-  'fauna-squirrel-02',
   'indian-palm-squirrel',
   'Three-striped Palm Squirrel',
   ARRAY['Gilahri (Hindi)', 'Indian Palm Squirrel'],
@@ -374,7 +415,6 @@ INSERT INTO public.fauna (
   'published'
 ),
 (
-  'fauna-butterfly-03',
   'common-mormon-butterfly',
   'Common Mormon',
   ARRAY['Mormon Swallowtail'],
@@ -410,7 +450,6 @@ INSERT INTO public.fauna (
   'published'
 ),
 (
-  'fauna-lizard-04',
   'oriental-garden-lizard',
   'Oriental Garden Lizard',
   ARRAY['Changeable Lizard', 'Girgit (Hindi)', 'Blood-sucker (Misnomer)'],
@@ -445,35 +484,81 @@ INSERT INTO public.fauna (
   'Garden lizards perform rhythmic "push-ups" to assert dominance over rival males.',
   'published'
 )
-ON CONFLICT (id) DO NOTHING;
+ON CONFLICT (slug) DO UPDATE SET
+  common_name = EXCLUDED.common_name,
+  scientific_name = EXCLUDED.scientific_name,
+  family = EXCLUDED.family,
+  category = EXCLUDED.category,
+  identification_confidence = EXCLUDED.identification_confidence,
+  status = EXCLUDED.status;
 
--- Seed Photos for Fauna
+-- Seed Photos for Fauna (Dynamically resolved by slug, safe for UUID keys)
 INSERT INTO public.fauna_photos (
-  id, fauna_id, storage_path, public_url, caption, alt_text, is_primary, display_order
-) VALUES
-(
-  'photo-bulbul-1', 'fauna-bulbul-01',
-  'fauna/red-vented-bulbul/bulbul-01.jpg', '/images/fauna/bulbul.jpg',
-  'Adult Red-vented Bulbul photographed in campus shrubbery near Junior Wing.',
-  'Red-vented bulbul perching on garden foliage', true, 1
-),
-(
-  'photo-squirrel-1', 'fauna-squirrel-02',
-  'fauna/indian-palm-squirrel/squirrel-01.jpg', '/images/fauna/squirrel.jpg',
-  'Palm squirrel foraging along the bark of an old courtyard tree.',
-  'Three-striped palm squirrel climbing bark of tree', true, 1
-),
-(
-  'photo-butterfly-1', 'fauna-butterfly-03',
-  'fauna/common-mormon/mormon-01.jpg', '/images/fauna/common_mormon.jpg',
-  'Common Mormon nectaring on blooming campus flora in the afternoon sun.',
-  'Common Mormon butterfly perched on a garden blossom', true, 1
-),
-(
-  'photo-lizard-1', 'fauna-lizard-04',
-  'fauna/oriental-garden-lizard/lizard-01.jpg', '/images/fauna/garden_lizard.jpg',
-  'Male garden lizard thermoregulating along the school perimeter hedge.',
-  'Oriental Garden lizard basking on wooden branch', true, 1
+  fauna_id, storage_path, public_url, caption, alt_text, is_primary, display_order
 )
-ON CONFLICT (id) DO NOTHING;
+SELECT 
+  id,
+  'fauna/red-vented-bulbul/bulbul-01.jpg',
+  '/images/fauna/bulbul.jpg',
+  'Adult Red-vented Bulbul photographed in campus shrubbery near Junior Wing.',
+  'Red-vented bulbul perching on garden foliage',
+  true,
+  1
+FROM public.fauna
+WHERE slug = 'red-vented-bulbul'
+AND NOT EXISTS (
+  SELECT 1 FROM public.fauna_photos p WHERE p.fauna_id = public.fauna.id AND p.storage_path = 'fauna/red-vented-bulbul/bulbul-01.jpg'
+);
+
+INSERT INTO public.fauna_photos (
+  fauna_id, storage_path, public_url, caption, alt_text, is_primary, display_order
+)
+SELECT 
+  id,
+  'fauna/indian-palm-squirrel/squirrel-01.jpg',
+  '/images/fauna/squirrel.jpg',
+  'Palm squirrel foraging along the bark of an old courtyard tree.',
+  'Three-striped palm squirrel climbing bark of tree',
+  true,
+  1
+FROM public.fauna
+WHERE slug = 'indian-palm-squirrel'
+AND NOT EXISTS (
+  SELECT 1 FROM public.fauna_photos p WHERE p.fauna_id = public.fauna.id AND p.storage_path = 'fauna/indian-palm-squirrel/squirrel-01.jpg'
+);
+
+INSERT INTO public.fauna_photos (
+  fauna_id, storage_path, public_url, caption, alt_text, is_primary, display_order
+)
+SELECT 
+  id,
+  'fauna/common-mormon/mormon-01.jpg',
+  '/images/fauna/common_mormon.jpg',
+  'Common Mormon nectaring on blooming campus flora in the afternoon sun.',
+  'Common Mormon butterfly perched on a garden blossom',
+  true,
+  1
+FROM public.fauna
+WHERE slug = 'common-mormon-butterfly'
+AND NOT EXISTS (
+  SELECT 1 FROM public.fauna_photos p WHERE p.fauna_id = public.fauna.id AND p.storage_path = 'fauna/common-mormon/mormon-01.jpg'
+);
+
+INSERT INTO public.fauna_photos (
+  fauna_id, storage_path, public_url, caption, alt_text, is_primary, display_order
+)
+SELECT 
+  id,
+  'fauna/oriental-garden-lizard/lizard-01.jpg',
+  '/images/fauna/garden_lizard.jpg',
+  'Male garden lizard thermoregulating along the school perimeter hedge.',
+  'Oriental Garden lizard basking on wooden branch',
+  true,
+  1
+FROM public.fauna
+WHERE slug = 'oriental-garden-lizard'
+AND NOT EXISTS (
+  SELECT 1 FROM public.fauna_photos p WHERE p.fauna_id = public.fauna.id AND p.storage_path = 'fauna/oriental-garden-lizard/lizard-01.jpg'
+);
+
 
