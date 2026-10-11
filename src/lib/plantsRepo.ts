@@ -6,7 +6,7 @@
 import { Plant, PlantStatus } from '@/types/plant';
 import { SAMPLE_PLANTS } from '@/data/samplePlants';
 
-const STORAGE_KEY = 'azimpremjischool_plants_v2';
+const STORAGE_KEY = 'azimpremjischool_plants_v3';
 
 export function getLocalPlants(): Plant[] {
   if (typeof window === 'undefined') {
@@ -19,7 +19,12 @@ export function getLocalPlants(): Plant[] {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(SAMPLE_PLANTS));
       return SAMPLE_PLANTS;
     }
-    return JSON.parse(raw);
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed) || parsed.length < SAMPLE_PLANTS.length) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(SAMPLE_PLANTS));
+      return SAMPLE_PLANTS;
+    }
+    return parsed;
   } catch (e) {
     console.error('Failed to load local plants:', e);
     return SAMPLE_PLANTS;

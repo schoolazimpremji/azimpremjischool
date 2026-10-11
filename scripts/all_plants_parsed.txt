@@ -1,0 +1,240 @@
+[ 1] Header: PLANT 1                             | Imgs: 1 | Sci: Livistona chinensis (Jacq.) R. | Common: Chinese Fan Palm / Fountain Pa
+     Images: ['media/image36.jpg']
+     Family: Arecaceae — the palm family.
+     Text snippet (first 200 chars): Common name: Chinese Fan Palm / Fountain PalmThe earlier research also mentions Coconut palm tree, but the more detailed identification points to Chinese Fan Palm. Scientific name: Livistona chinensis
+
+[ 2] Header: PLANT 2                             | Imgs: 2 | Sci: Psidium guajava L.Family: Myrt | Common: Guava / Guava tree
+     Images: ['media/image35.jpg', 'media/image41.jpg']
+     Family: Myrtaceae.
+     Text snippet (first 200 chars): Common name: Guava / Guava tree Scientific name: Psidium guajava L.Family: Myrtaceae. Characteristics for identification: It is usually a small tree or large shrub. The leaves are oval to oblong and h
+
+[ 3] Header: PLANT 3                             | Imgs: 2 | Sci: Polyalthia longifolia (Sonn.)  | Common: False Ashoka / False Ashok / M
+     Images: ['media/image26.jpg', 'media/image26.jpg']
+     Family: N/A
+     Text snippet (first 200 chars): False Ashoka / False Ashok / Mast tree Common name: False Ashoka / False Ashok / Mast Tree Scientific name: Polyalthia longifolia (Sonn.) Thwaites Characteristics for identification: It is a tall, nar
+
+[ 4] Header: PLANT 4                             | Imgs: 2 | Sci: Jatropha multifida L.Family: E | Common: Coral Plant / Coral Bush / Phy
+     Images: ['media/image39.jpg', 'media/image18.jpg']
+     Family: Euphorbiaceae.
+     Text snippet (first 200 chars): Common name: Coral Plant / Coral Bush / Physic Nut Scientific name: Jatropha multifida L.Family: Euphorbiaceae. Characteristics for identification: It is a shrub or small tree. Its leaves are very dis
+
+[ 5] Header: PLANT 5                             | Imgs: 2 | Sci: Plumeria obtusa L.             | Common: Frangipani / Singapore Frangip
+     Images: ['media/image23.jpg', 'media/image21.jpg']
+     Family: N/A
+     Text snippet (first 200 chars): Common name: Frangipani / Singapore Frangipani / White Frangipani / Temple Flower Scientific name: Plumeria obtusa L. Characteristics for identification: It is a shrub or small tree. The leaves are th
+
+[ 6] Header: PLANT 6                             | Imgs: 2 | Sci: Caesalpinia pulcherrima (L.) S | Common: Peacock Flower / Barbados Prid
+     Images: ['media/image55.jpg', 'media/image15.jpg']
+     Family: Fabaceae.
+     Text snippet (first 200 chars): Common name: Peacock Flower / Barbados Pride / Dwarf Poinciana Scientific name: Caesalpinia pulcherrima (L.) Sw.Family: Fabaceae. Characteristics for identification: It is usually a shrub or small tre
+
+[ 7] Header: PLANT 7                             | Imgs: 2 | Sci: Catharanthus roseus (L.) G.Don | Common: Madagascar Periwinkle / Sadaba
+     Images: ['media/image48.jpg', 'media/image60.jpg']
+     Family: Apocynaceae.
+     Text snippet (first 200 chars): Common name: Madagascar Periwinkle / Sadabahar / Sadaphuli Scientific name: Catharanthus roseus (L.) G.DonFamily: Apocynaceae. Characteristics for identification: It is a small, bushy herb or subshrub
+
+[ 8] Header: PLANT 8                             | Imgs: 2 | Sci: Moringa oleifera Lam.Family: M | Common: Drumstick Tree / Moringa / Mun
+     Images: ['media/image19.jpg', 'media/image28.jpg']
+     Family: Moringaceae.
+     Text snippet (first 200 chars): Common name: Drumstick Tree / Moringa / Munga / Shevga Scientific name: Moringa oleifera Lam.Family: Moringaceae. Characteristics for identification: The leaves look very fine and feathery. What looks
+
+[ 9] Header: PLANT 9                             | Imgs: 5 | Sci: Nerium oleander L.Family: Apoc | Common: Oleander / Kaner / Karavira
+     Images: ['media/image29.jpg', 'media/image52.jpg', 'media/image17.png', 'media/image42.png', 'media/image24.png']
+     Family: Apocynaceae.
+     Text snippet (first 200 chars): Common name: Oleander / Kaner / Karavira Scientific name: Nerium oleander L.Family: Apocynaceae. Characteristics for identification: It is an evergreen shrub or small tree. The leaves are long, narrow
+
+[10] Header: PLANT 10                            | Imgs: 1 | Sci: Colocasia esculenta (L.) Schot | Common: Taro / Elephant Ear / Arbi / D
+     Images: ['media/image47.jpg']
+     Family: Araceae.
+     Text snippet (first 200 chars): Common name: Taro / Elephant Ear / Arbi / Dasheen Scientific name: Colocasia esculenta (L.) SchottFamily: Araceae. Characteristics for identification: Very large leaves. Leaves are broadly heart-shape
+
+[11] Header: PLANT 11                            | Imgs: 2 | Sci: Punica granatum L.Family: Lyth | Common: Pomegranate / Anar
+     Images: ['media/image43.jpg', 'media/image14.jpg']
+     Family: Lythraceae.
+     Text snippet (first 200 chars): Common name: Pomegranate / Anar Scientific name: Punica granatum L.Family: Lythraceae. Characteristics for identification: It is a small tree or large, highly branched shrub. The leaves are small, nar
+
+[12] Header: PLANT 12                            | Imgs: 1 | Sci: Rosa spp.Family: Rosaceae.     | Common: Rose / Garden Rose
+     Images: ['media/image56.jpg']
+     Family: Rosaceae.
+     Text snippet (first 200 chars): Common name: Rose / Garden Rose Scientific name: Rosa spp.Family: Rosaceae. The exact species or variety cannot be confirmed from the photograph, because there are thousands of cultivated roses. So Ro
+
+[13] Header: PLANT 13                            | Imgs: 2 | Sci: Duranta erecta L.Family: Verbe | Common: Golden Dewdrop / Sky Flower / 
+     Images: ['media/image3.jpg', 'media/image40.jpg']
+     Family: Verbenaceae — the verbena family.
+     Text snippet (first 200 chars): Common name: Golden Dewdrop / Sky Flower / Pigeon Berry Scientific name: Duranta erecta L.Family: Verbenaceae — the verbena family. Characteristics for identification: Dense, branching shrub. Small, s
+
+[14] Header: PLANT 14                            | Imgs: 1 | Sci: Azadirachta indica A.Juss.Fami | Common: Neem / Indian Neem / Margosa /
+     Images: ['media/image49.jpg']
+     Family: Meliaceae.
+     Text snippet (first 200 chars): Common name: Neem / Indian Neem / Margosa / Indian Lilac Scientific name: Azadirachta indica A.Juss.Family: Meliaceae. Characteristics for identification: Medium to large evergreen tree. Long pinnate 
+
+[15] Header: PLANT 15                            | Imgs: 1 | Sci: Tecoma castanifolia (D.Don) Me | Common: Chestnutleaf Trumpetbush / Yel
+     Images: ['media/image46.jpg']
+     Family: Bignoniaceae — the trumpet-vine family.
+     Text snippet (first 200 chars): Common name: Chestnutleaf Trumpetbush / Yellow Trumpetbush Scientific name: Tecoma castanifolia (D.Don) Melch.Family: Bignoniaceae — the trumpet-vine family. Identification:The identification is consi
+
+[16] Header: PLANT 16                            | Imgs: 1 | Sci: Terminalia catappa L.Family: C | Common: Indian Almond / Tropical Almon
+     Images: ['media/image12.jpg']
+     Family: Combretaceae.
+     Text snippet (first 200 chars): Common name: Indian Almond / Tropical Almond / Country Almond / Desi Badam / Jangli Badam Scientific name: Terminalia catappa L.Family: Combretaceae. Characteristics for identification: Large, thick, 
+
+[17] Header: PLANT 17                            | Imgs: 1 | Sci: Tecoma stans (L.) Juss. ex Kun | Common: Yellow Bells / Yellow Trumpetb
+     Images: ['media/image4.jpg']
+     Family: Bignoniaceae.
+     Text snippet (first 200 chars): Common name: Yellow Bells / Yellow Trumpetbush Scientific name: Tecoma stans (L.) Juss. ex KunthFamily: Bignoniaceae. Characteristics for identification: It has compound leaves. Each leaf is divided i
+
+[18] Header: PLANT 18                            | Imgs: 2 | Sci: Mussaenda erythrophylla        | Common: Red-leaved Mussaenda / Ashanti
+     Images: ['media/image38.png', 'media/image51.png']
+     Family: Rubiaceae
+     Text snippet (first 200 chars): Common name: Red-leaved Mussaenda / Ashanti Blood / Red Flag Bush Scientific name: Mussaenda erythrophylla Family: Rubiaceae Characteristics Shrubby growth. Green leaves with prominent veins. Small fl
+
+[19] Header: PLANT 19                            | Imgs: 1 | Sci: Tradescantia pallidaOften cult | Common: Purple Heart / Purple Queen
+     Images: ['media/image1.png']
+     Family: Commelinaceae
+     Text snippet (first 200 chars): Common name: Purple Heart / Purple Queen Scientific name: Tradescantia pallidaOften cultivated as Tradescantia pallida 'Purpurea' Family: Commelinaceae Characteristics for identification Long, narrow,
+
+[20] Header: PLANT 20                            | Imgs: 1 | Sci: Heptapleurum actinophyllum     | Common: Umbrella Tree / Octopus Tree
+     Images: ['media/image37.png']
+     Family: Araliaceae
+     Text snippet (first 200 chars): Common name: Umbrella Tree / Octopus Tree Scientific name: Heptapleurum actinophyllum Older scientific name: Schefflera actinophylla Family: Araliaceae Characteristics for identification An evergreen 
+
+[21] Header: PLANT 21                            | Imgs: 2 | Sci: Plumeria pudica Jacq.          | Common: Wild Plumeria / Bridal Bouquet
+     Images: ['media/image34.png', 'media/image45.png']
+     Family: Apocynaceae
+     Text snippet (first 200 chars): Common name: Wild Plumeria / Bridal Bouquet / White Frangipani / Fiddle-leaf Plumeria Scientific name: Plumeria pudica Jacq. Family: Apocynaceae Characteristics for identification The leaves are the b
+
+[22] Header: PLANT 22                            | Imgs: 1 | Sci: Hibiscus rosa-sinensis cultiva | Common: Yellow Double Hibiscus / Yello
+     Images: ['media/image7.png']
+     Family: Malvaceae
+     Text snippet (first 200 chars): I think it is yellow bell Common name: Yellow Double Hibiscus / Yellow Hibiscus / Gudhal / Jaba Scientific name: Hibiscus rosa-sinensis cultivar Family: Malvaceae This is not a separate species. It is
+
+[23] Header: PLANT 23                            | Imgs: 2 | Sci: Plumeria obtusa L.             | Common: White Frangipani / Singapore F
+     Images: ['media/image2.png', 'media/image50.png']
+     Family: Apocynaceae
+     Text snippet (first 200 chars): Common name: White Frangipani / Singapore Frangipani / Frangipani Scientific name: Plumeria obtusa L. Family: Apocynaceae Characteristics for identification Thick, glossy, dark-green leaves. Leaves ar
+
+[24] Header: PLANT 24                            | Imgs: 1 | Sci: Delonix regia                  | Common: Gulmohar / Flame Tree / Royal 
+     Images: ['media/image30.png']
+     Family: Fabaceae
+     Text snippet (first 200 chars): Common name: Gulmohar / Flame Tree / Royal Poinciana Scientific name: Delonix regia Family: Fabaceae Characteristics for identification Very fine, feathery leaves. Leaves are bipinnate, meaning they a
+
+[25] Header: PLANT 25                            | Imgs: 1 | Sci: N/A                            | Common: N/A
+     Images: ['media/image59.png']
+     Family: N/A
+     Text snippet (first 200 chars): 
+
+[26] Header: PLANT 26                            | Imgs: 1 | Sci: Barleria prionitis L.          | Common: Porcupine Flower / Vajradanti
+     Images: ['media/image9.png']
+     Family: Acanthaceae
+     Text snippet (first 200 chars): Common name: Porcupine Flower / Vajradanti Scientific name: Barleria prionitis L. Family: Acanthaceae Characteristics for identification Small, bushy shrub. Opposite green leaves. Yellow or orange-yel
+
+[27] Header: Plant- 27                           | Imgs: 1 | Sci: Carissa carandas L.            | Common: Karonda / Bengal Currant / Las
+     Images: ['media/image54.png']
+     Family: Apocynaceae
+     Text snippet (first 200 chars): Common name: Karonda / Bengal Currant / Lasoda Scientific name: Carissa carandas L. Family: Apocynaceae Characteristics for identification Evergreen shrub or small tree. Dense, bushy growth. Glossy, l
+
+[28] Header: Plant- 28                           | Imgs: 1 | Sci: Acalypha godseffiana 'Heteroph | Common: Copperleaf / Firestorm / Dwarf
+     Images: ['media/image31.png']
+     Family: Euphorbiaceae
+     Text snippet (first 200 chars): Common name: Copperleaf / Firestorm / Dwarf Acalypha Scientific name: Acalypha godseffiana 'Heterophylla' Family: Euphorbiaceae Characteristics for identification Narrow green leaves. Leaves have stro
+
+[29] Header: Plant- 29                           | Imgs: 3 | Sci: Syzygium polyanthum (Wight) Wa | Common: Indian Bay Leaf / Indonesian B
+     Images: ['media/image32.png', 'media/image33.png', 'media/image16.png']
+     Family: Myrtaceae
+     Text snippet (first 200 chars): . Likely common name: Indian Bay Leaf / Indonesian Bay Leaf / Salam Likely scientific name: Syzygium polyanthum (Wight) Walp. Family: Myrtaceae Important identification note This one is not fully conf
+
+[30] Header: Plant- 30                           | Imgs: 2 | Sci: Alternanthera sessilis         | Common: Sessile Joyweed / Dwarf Copper
+     Images: ['media/image44.png', 'media/image22.png']
+     Family: Amaranthaceae
+     Text snippet (first 200 chars): Common name: Sessile Joyweed / Dwarf Copperleaf Scientific name: Alternanthera sessilis Family: Amaranthaceae Characteristics Small, low-growing herb. Stems can spread along the ground. Leaves occur i
+
+[31] Header: Plant- 31                           | Imgs: 2 | Sci: Annona squamosa L.             | Common: Custard Apple / Sugar Apple / 
+     Images: ['media/image58.png', 'media/image25.png']
+     Family: Annonaceae
+     Text snippet (first 200 chars): Common name: Custard Apple / Sugar Apple / Sweetsop / Sitaphal / Sharifa Scientific name: Annona squamosa L. Family: Annonaceae Characteristics Small tree or large shrub. Smooth green leaves. Leaves a
+
+[32] Header: Plant - 32                          | Imgs: 1 | Sci: Ehretia microphylla Lam.       | Common: Fukien Tea / Philippine Tea / 
+     Images: ['media/image27.png']
+     Family: Boraginaceae
+     Text snippet (first 200 chars): Common name: Fukien Tea / Philippine Tea / Carmona Scientific name: Ehretia microphylla Lam. Older/common synonym: Carmona retusa Family: Boraginaceae Characteristics Dense, heavily branched shrub. Sm
+
+[33] Header: Plant - 33                          | Imgs: 2 | Sci: Leucaena leucocephala          | Common: Subabul / Subabool / Lead Tree
+     Images: ['media/image10.png', 'media/image57.png']
+     Family: Fabaceae
+     Text snippet (first 200 chars): Common name: Subabul / Subabool / Lead Tree / Leucaena / Wild Tamarind Scientific name: Leucaena leucocephala Family: Fabaceae Characteristics Small to medium tree or shrub. Very fine, feathery leaves
+
+[34] Header: Plant - 34                          | Imgs: 1 | Sci: Cordia dichotoma G.Forst.      | Common: Indian Cherry / Lasora / Lasod
+     Images: ['media/image53.png']
+     Family: Boraginaceae
+     Text snippet (first 200 chars): Common name: Indian Cherry / Lasora / Lasoda / Bhokar / Gonda Scientific name: Cordia dichotoma G.Forst. Family: Boraginaceae Characteristics Small to medium woody tree or shrub. Long, drooping branch
+
+[35] Header: Plant - 35                          | Imgs: 1 | Sci: N/A                            | Common: N/A
+     Images: ['media/image8.png']
+     Family: N/A
+     Text snippet (first 200 chars): 
+
+[36] Header: Plant - 36                          | Imgs: 1 | Sci: Pittosporum tobira             | Common: Japanese Pittosporum / Japanes
+     Images: ['media/image5.png']
+     Family: Pittosporaceae
+     Text snippet (first 200 chars): Common name: Japanese Pittosporum / Japanese Mock Orange / Japanese Cheesewood / Tobira Scientific name: Pittosporum tobira Family: Pittosporaceae Characteristics Evergreen shrub or small tree. Thick,
+
+[37] Header: Plant - 37                          | Imgs: 1 | Sci: Chrysalidocarpus lutescens H.W | Common: Areca Palm / Golden Cane Palm 
+     Images: ['media/image6.png']
+     Family: Arecaceae
+     Text snippet (first 200 chars): Common name: Areca Palm / Golden Cane Palm / Butterfly Palm Scientific name: Chrysalidocarpus lutescens H.Wendl. Older/common scientific name: Dypsis lutescens Family: Arecaceae Characteristics Severa
+
+[38] Header: Plant - 38                          | Imgs: 1 | Sci: Ficus pumila L.                | Common: Creeping Fig / Climbing Fig / 
+     Images: ['media/image13.png']
+     Family: Moraceae
+     Text snippet (first 200 chars): Common name: Creeping Fig / Climbing Fig / Creeping Ficus Scientific name: Ficus pumila L. Family: Moraceae Characteristics Evergreen woody climber. Glossy green leaves. Leaves are simple and usually 
+
+[39] Header: Plant - 39                          | Imgs: 1 | Sci: Hibiscus × rosa-sinensis       | Common: Chinese Hibiscus / Shoe Flower
+     Images: ['media/image11.png']
+     Family: Malvaceae
+     Text snippet (first 200 chars): Common name: Chinese Hibiscus / Shoe Flower / Hibiscus Scientific name: Hibiscus × rosa-sinensis Family: Malvaceae Characteristics Large yellow flower. Flower is double or semi-double. Glossy green le
+
+[40] Header: Plant - 40                          | Imgs: 1 | Sci: Ixora coccinea L.              | Common: Jungle Flame / Jungle Geranium
+     Images: ['media/image61.png']
+     Family: Rubiaceae
+     Text snippet (first 200 chars): Common name: Jungle Flame / Jungle Geranium / Flame of the Woods / Red Ixora / Ixora Scientific name: Ixora coccinea L. Family: Rubiaceae Characteristics Evergreen flowering shrub. Glossy, dark-green 
+
+[41] Header: Plant - 41                          | Imgs: 1 | Sci: Gardenia jasminoides J.Ellis   | Common: Gardenia / Cape Jasmine / Cape
+     Images: ['media/image20.png']
+     Family: Rubiaceae
+     Text snippet (first 200 chars): Common name: Gardenia / Cape Jasmine / Cape Jessamine Scientific name: Gardenia jasminoides J.Ellis Family: Rubiaceae Characteristics Evergreen shrub. Very glossy, dark-green leaves. Leaves are thick 
+
+[42] Header: Plant 42 – Jackfruit                | Imgs: 0 | Sci: Artocarpus heterophyllus       | Common: Jackfruit / Kathal
+     Images: []
+     Family: Moraceae
+     Text snippet (first 200 chars): Common name: Jackfruit / Kathal Scientific name: Artocarpus heterophyllus Family: Moraceae Characteristics for identification: A large evergreen tree with a thick trunk and broad, dense foliage. Leave
+
+[43] Header: Plant 43 – Mango                    | Imgs: 0 | Sci: Mangifera indica               | Common: Mango / Aam
+     Images: []
+     Family: Anacardiaceae
+     Text snippet (first 200 chars): Common name: Mango / Aam Scientific name: Mangifera indica Family: Anacardiaceae Characteristics for identification: A large evergreen tree with a thick trunk and a broad, rounded crown. Leaves are lo
+
+[44] Header: Plant 44 – Blue Jamun               | Imgs: 0 | Sci: Syzygium cumini                | Common: Jamun / Indian blackberry / Ja
+     Images: []
+     Family: Myrtaceae
+     Text snippet (first 200 chars): Common name: Jamun / Indian blackberry / Java plum / Black plum Scientific name: Syzygium cumini Family: Myrtaceae Characteristics for identification: A medium to large evergreen tree with a dense cro
+
+[45] Header: Plant 45 – Papaya                   | Imgs: 0 | Sci: Carica papaya                  | Common: Papaya / Papita
+     Images: []
+     Family: Caricaceae
+     Text snippet (first 200 chars): Common name: Papaya / Papita Scientific name: Carica papaya Family: Caricaceae Characteristics for identification: Papaya is a small, fast-growing plant with a soft, usually unbranched trunk. The trun
+
+[46] Header: Plant 46 – Banana [ two types/species are there] | Imgs: 0 | Sci: Musa spp.                      | Common: Banana / Kela
+     Images: []
+     Family: Musaceae
+     Text snippet (first 200 chars): Common name: Banana / Kela Scientific name: Musa spp. Family: Musaceae Characteristics for identification: Banana has very large, long leaves that grow from the centre of the plant. The leaves are bro
+
+[47] Header: PLANT 47 - LEMON                    | Imgs: 0 | Sci: N/A                            | Common: N/A
+     Images: []
+     Family: N/A
+     Text snippet (first 200 chars): 
+
+[48] Header: PLANT 48 - TURMERIC                 | Imgs: 0 | Sci: N/A                            | Common: N/A
+     Images: []
+     Family: N/A
+     Text snippet (first 200 chars): 
+
