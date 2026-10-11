@@ -12,7 +12,8 @@ import {
   ExternalLink,
   Shield,
   Layers,
-  Sparkles
+  Bird,
+  Compass
 } from 'lucide-react';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -37,8 +38,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const navItems = [
     { href: '/admin', label: 'Overview & Stats', icon: Layers },
-    { href: '/admin/plants', label: 'All Plant Records', icon: FolderTree },
-    { href: '/admin/plants/new', label: 'Add New Specimen', icon: PlusCircle },
+    { href: '/admin/plants', label: 'Flora Records (Plants)', icon: FolderTree },
+    { href: '/admin/fauna', label: 'Fauna Records (Wildlife)', icon: Bird },
+    { href: '/admin/plants/new', label: 'Add Plant Specimen', icon: PlusCircle },
+    { href: '/admin/fauna/new', label: 'Add Wildlife Entry', icon: PlusCircle },
   ];
 
   return (
@@ -78,7 +81,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                  className={`flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-xs font-medium transition-colors ${
                     active
                       ? 'bg-forest-800 text-white font-semibold'
                       : 'text-sage-300 hover:text-white hover:bg-forest-900'
@@ -95,13 +98,25 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Sidebar Footer */}
         <div className="p-5 border-t border-forest-900 space-y-2">
           <Link
-            href="/explore"
+            href="/flora"
             target="_blank"
-            className="flex items-center justify-between text-xs text-sage-300 hover:text-white px-3 py-2 rounded-lg hover:bg-forest-900 transition-colors"
+            className="flex items-center justify-between text-xs text-sage-300 hover:text-white px-3 py-1.5 rounded-lg hover:bg-forest-900 transition-colors"
           >
             <span className="flex items-center space-x-2">
-              <ExternalLink className="w-3.5 h-3.5" />
-              <span>View Public Guide</span>
+              <Compass className="w-3.5 h-3.5" />
+              <span>Flora Public Guide</span>
+            </span>
+            <span>↗</span>
+          </Link>
+
+          <Link
+            href="/fauna"
+            target="_blank"
+            className="flex items-center justify-between text-xs text-sage-300 hover:text-white px-3 py-1.5 rounded-lg hover:bg-forest-900 transition-colors"
+          >
+            <span className="flex items-center space-x-2">
+              <Bird className="w-3.5 h-3.5" />
+              <span>Fauna Public Guide</span>
             </span>
             <span>↗</span>
           </Link>
@@ -111,7 +126,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               logout();
               router.push('/login');
             }}
-            className="w-full flex items-center space-x-2 text-xs text-red-300 hover:text-red-200 hover:bg-red-950/40 px-3 py-2 rounded-lg transition-colors"
+            className="w-full flex items-center space-x-2 text-xs text-red-300 hover:text-red-200 hover:bg-red-950/40 px-3 py-2 rounded-lg transition-colors pt-2"
           >
             <LogOut className="w-3.5 h-3.5" />
             <span>Sign Out</span>

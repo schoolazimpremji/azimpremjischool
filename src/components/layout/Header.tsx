@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Sprout, Compass, Info, Shield, Menu, X, BookOpen } from 'lucide-react';
+import { Sprout, Compass, Bird, Info, Shield, Menu, X } from 'lucide-react';
 
 export default function Header() {
   const pathname = usePathname();
@@ -11,13 +11,15 @@ export default function Header() {
 
   const navLinks = [
     { href: '/', label: 'Home', icon: Sprout },
-    { href: '/explore', label: 'Field Guide', icon: Compass },
+    { href: '/flora', label: 'Flora', icon: Compass },
+    { href: '/fauna', label: 'Fauna', icon: Bird },
     { href: '/about', label: 'About Project', icon: Info },
     { href: '/admin', label: 'Curator Portal', icon: Shield },
   ];
 
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/';
+    if (href === '/flora') return pathname.startsWith('/flora') || pathname.startsWith('/explore');
     return pathname.startsWith(href);
   };
 
@@ -27,19 +29,19 @@ export default function Header() {
         <div className="flex items-center justify-between h-18 py-3">
           {/* Logo & School Branding */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 rounded-xl bg-forest-700 text-white flex items-center justify-center shadow-sm group-hover:bg-forest-800 transition-colors">
-              <Sprout className="w-6 h-6 text-forest-200" />
+            <div className="w-10 h-10 rounded-xl bg-forest-800 text-white flex items-center justify-center shadow-sm group-hover:bg-forest-900 transition-colors">
+              <Sprout className="w-6 h-6 text-ochre-300" />
             </div>
             <div>
               <div className="flex items-center space-x-2">
                 <span className="font-serif font-bold text-lg text-forest-950 tracking-tight">
                   Azim Premji School
                 </span>
-                <span className="text-xs uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-forest-100 text-forest-800">
-                  Flora
+                <span className="text-[11px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-forest-100 text-forest-800 border border-forest-200">
+                  Biodiversity
                 </span>
               </div>
-              <p className="text-xs text-sage-600 font-medium">Campus Biodiversity Registry</p>
+              <p className="text-xs text-sage-600 font-medium">Campus Flora & Fauna Field Guide</p>
             </div>
           </Link>
 

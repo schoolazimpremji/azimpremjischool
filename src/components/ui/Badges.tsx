@@ -1,5 +1,6 @@
 import React from 'react';
 import { ConfidenceLevel, PlantStatus } from '@/types/plant';
+import { FaunaStatus } from '@/types/fauna';
 import { CheckCircle2, HelpCircle, AlertTriangle, Clock } from 'lucide-react';
 
 interface ConfidenceBadgeProps {
@@ -13,7 +14,7 @@ export function ConfidenceBadge({ confidence, className = '' }: ConfidenceBadgeP
       return (
         <span
           className={`inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 ${className}`}
-          title="Verified by botanical reference guides and mentors"
+          title="Verified by scientific reference guides and faculty mentors"
         >
           <CheckCircle2 className="w-3 h-3 text-emerald-600" />
           <span>Verified Specimen</span>
@@ -23,7 +24,7 @@ export function ConfidenceBadge({ confidence, className = '' }: ConfidenceBadgeP
       return (
         <span
           className={`inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-800 border border-blue-200 ${className}`}
-          title="High identification likelihood based on floral/foliar keys"
+          title="High identification likelihood based on morphological keys"
         >
           <Clock className="w-3 h-3 text-blue-600" />
           <span>Probable ID</span>
@@ -54,7 +55,7 @@ export function ConfidenceBadge({ confidence, className = '' }: ConfidenceBadgeP
 }
 
 interface StatusBadgeProps {
-  status: PlantStatus;
+  status: PlantStatus | FaunaStatus;
   className?: string;
 }
 

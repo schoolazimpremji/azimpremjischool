@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Sprout, Heart, BookOpen, Compass, ShieldCheck } from 'lucide-react';
+import { Sprout, Compass, Bird, BookOpen, ShieldCheck } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -11,45 +11,46 @@ export default function Footer() {
           <div className="md:col-span-2 space-y-3">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 rounded-lg bg-forest-800 text-forest-200 flex items-center justify-center">
-                <Sprout className="w-5 h-5" />
+                <Sprout className="w-5 h-5 text-ochre-300" />
               </div>
               <span className="font-serif font-bold text-lg text-white">
-                Azim Premji School Campus Flora
+                Azim Premji School Campus Biodiversity
               </span>
             </div>
             <p className="text-sm text-sage-300 max-w-md leading-relaxed">
-              A student-led, teacher-mentored field registry documenting native, naturalized, and ornamental plant diversity across our school campus. Fostering ecological curiosity and environmental stewardship.
+              A student-led, faculty-mentored living registry documenting the botanical flora and wildlife fauna sharing our school grounds. Promoting hands-on observational science, compassionate conservation, and respectful wildlife observation.
             </p>
             <div className="pt-2 text-xs text-sage-400">
-              * Notice: Records tagged with uncertain confidence represent ongoing active student investigations awaiting expert botanical review.
+              * Notice: Records marked with uncertain confidence represent ongoing student field inquiries awaiting scientific confirmation.
             </div>
           </div>
 
-          {/* Quick links */}
+          {/* Flora & Fauna Directories */}
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-forest-300 mb-4">
-              Explore Flora
+              Explore Nature
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/explore" className="hover:text-white transition-colors flex items-center space-x-1.5">
+                <Link href="/flora" className="hover:text-white transition-colors flex items-center space-x-1.5">
                   <Compass className="w-3.5 h-3.5 text-forest-400" />
-                  <span>All Campus Plants</span>
+                  <span>Flora Directory (Plants & Trees)</span>
                 </Link>
               </li>
               <li>
-                <Link href="/explore?category=tree" className="hover:text-white transition-colors">
-                  Campus Canopy Trees
+                <Link href="/fauna" className="hover:text-white transition-colors flex items-center space-x-1.5">
+                  <Bird className="w-3.5 h-3.5 text-ochre-400" />
+                  <span>Fauna Directory (Birds & Wildlife)</span>
                 </Link>
               </li>
               <li>
-                <Link href="/explore?category=herb" className="hover:text-white transition-colors">
-                  Medicinal & Herbal Plants
+                <Link href="/fauna?category=birds" className="hover:text-white transition-colors text-xs text-sage-300">
+                  Campus Avian Life (Birds)
                 </Link>
               </li>
               <li>
-                <Link href="/explore?category=flowering plant" className="hover:text-white transition-colors">
-                  Flowering Shrubs & Pollinators
+                <Link href="/fauna?category=butterflies and moths" className="hover:text-white transition-colors text-xs text-sage-300">
+                  Butterflies & Pollinators
                 </Link>
               </li>
             </ul>
@@ -75,7 +76,7 @@ export default function Footer() {
               </li>
               <li>
                 <span className="text-xs text-sage-400 block pt-2">
-                  Academic Year 2026 – Biodiversity Survey Initiative
+                  Campus Wildlife Safety: Observe from distance, do not handle animals.
                 </span>
               </li>
             </ul>
@@ -83,9 +84,9 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-forest-900 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-sage-400">
-          <p>© {new Date().getFullYear()} Azim Premji School. Educational botanical documentation repository.</p>
+          <p>© {new Date().getFullYear()} Azim Premji School. Campus Biodiversity Registry.</p>
           <p className="mt-2 sm:mt-0 flex items-center space-x-1">
-            <span>Preserving campus flora knowledge with care</span>
+            <span>Living documentation of campus trees, plants, birds & creatures</span>
           </p>
         </div>
       </div>
